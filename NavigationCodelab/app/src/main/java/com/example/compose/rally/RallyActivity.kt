@@ -77,15 +77,19 @@ fun RallyApp() {
                 modifier = Modifier.padding(innerPadding)
             ) {
                 composable(route = Overview.route) {
-//                    Overview.screen
-                    OverviewScreen()
+                    OverviewScreen(
+                        onClickSeeAllAccounts = {
+                            navController.navigateSingleTopTo(Accounts.route)
+                        },
+                        onClickSeeAllBills = {
+                            navController.navigateSingleTopTo(Bills.route)
+                        }
+                    )
                 }
                 composable(route = Accounts.route) {
-//                    Accounts.screen
                     AccountsScreen()
                 }
                 composable(route = Bills.route) {
-//                    Bills.screen
                     BillsScreen()
                 }
             }
