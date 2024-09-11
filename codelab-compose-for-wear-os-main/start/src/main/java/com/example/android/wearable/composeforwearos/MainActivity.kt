@@ -68,41 +68,53 @@ class MainActivity : ComponentActivity() {
 fun WearApp() {
     WearAppTheme {
         /* *************************** Part 4: Wear OS Scaffold *************************** */
-        // TODO (Start): Create a AppScaffold (Wear Version)
+        // TODO (Start): Create a Horologist AppScaffold (Wear Version)
+        AppScaffold {
 
-        // TODO: Swap to ScalingLazyColumnState
-        val listState = rememberResponsiveColumnState(
-            contentPadding = ScalingLazyColumnDefaults.padding(
-                first = ScalingLazyColumnDefaults.ItemType.SingleButton,
-                last = ScalingLazyColumnDefaults.ItemType.Chip,
-            ),
-        )
+            // TODO: Swap to ScalingLazyColumnState
+            val listState = rememberResponsiveColumnState(
+                contentPadding = ScalingLazyColumnDefaults.padding(
+                    first = ScalingLazyColumnDefaults.ItemType.SingleButton,
+                    last = ScalingLazyColumnDefaults.ItemType.Chip,
+                ),
+            )
 
-        /* *************************** Part 4: Wear OS Scaffold *************************** */
-        // TODO (Start): Create a ScreenScaffold (Wear Version)
+            /* *************************** Part 4: Wear OS Scaffold *************************** */
+            // TODO (Start): Create a ScreenScaffold (Wear Version)
+            // TODO (Start): Create a Horologist ScreenScaffold (Wear Version)
+            ScreenScaffold(
+                scrollState = listState,
+            ) {
 
-        // Modifiers used by our Wear composables.
-        val contentModifier = Modifier.fillMaxWidth().padding(bottom = 8.dp)
-        val iconModifier = Modifier.size(24.dp).wrapContentSize(align = Alignment.Center)
+                // Modifiers used by our Wear composables.
+                val contentModifier = Modifier
+                    .fillMaxWidth()
+                    .padding(bottom = 8.dp)
+                val iconModifier =
+                    Modifier
+                        .size(24.dp)
+                        .wrapContentSize(align = Alignment.Center)
 
-        /* *************************** Part 3: ScalingLazyColumn *************************** */
-        // TODO: Swap a ScalingLazyColumn (Wear's version of LazyColumn)
-        ScalingLazyColumn(
-            columnState = listState
-        ) {
-            /* ******************* Part 1: Simple composables ******************* */
-            item { ButtonExample(contentModifier, iconModifier) }
-            item { TextExample(contentModifier) }
-            item { CardExample(contentModifier, iconModifier) }
+                /* *************************** Part 3: ScalingLazyColumn *************************** */
+                // TODO: Swap a ScalingLazyColumn (Wear's version of LazyColumn)
+                ScalingLazyColumn(
+                    columnState = listState
+                ) {
+                    /* ******************* Part 1: Simple composables ******************* */
+                    item { ButtonExample(contentModifier, iconModifier) }
+                    item { TextExample(contentModifier) }
+                    item { CardExample(contentModifier, iconModifier) }
 
-            /* ********************* Part 2: Wear unique composables ********************* */
-            item { ChipExample(contentModifier, iconModifier) }
-            item { ToggleChipExample(contentModifier) }
+                    /* ********************* Part 2: Wear unique composables ********************* */
+                    item { ChipExample(contentModifier, iconModifier) }
+                    item { ToggleChipExample(contentModifier) }
+                }
+
+                // TODO (End): Create a ScreenScaffold (Wear Version)
+            }
         }
-
-        // TODO (End): Create a ScreenScaffold (Wear Version)
+        // TODO (End): Create a AppScaffold (Wear Version)
     }
-    // TODO (End): Create a AppScaffold (Wear Version)
 }
 
 @WearPreviewDevices
